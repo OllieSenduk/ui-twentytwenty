@@ -7,9 +7,9 @@ ENV APP /usr/src/app
 RUN mkdir $APP
 WORKDIR $APP
 
-COPY package.json yarn.lock $APP/
-RUN yarn
+COPY package.json package-lock.json $APP/
+RUN npm install
 
 COPY . $APP/
 
-CMD ["yarn", "run", "dev"]
+CMD ["npm", "run", "dev"]
